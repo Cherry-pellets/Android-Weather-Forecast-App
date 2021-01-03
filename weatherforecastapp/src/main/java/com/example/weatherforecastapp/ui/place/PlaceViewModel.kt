@@ -12,7 +12,7 @@ class PlaceViewModel : ViewModel() {
     fun savePlace(place: Place) = Repository.savePlace(place)
     fun getSavedPlace() = Repository.getSavedPlace()
     fun isPlaceSaved() = Repository.isPlaceSaved()
-//    记录选中的城市
+
     private val searchLiveDate = MutableLiveData<String>()
 
     val placeList = ArrayList<Place>() // 用于对界面上显示的城市数据进行缓存

@@ -19,6 +19,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import com.example.weatherforecastapp.R
 import com.example.weatherforecastapp.WeatherForecastApplication
+import com.example.weatherforecastapp.ui.weather.WeatherActivity
 
 class PlaceFragment : Fragment() {
     val viewModel by lazy {
@@ -40,7 +41,7 @@ class PlaceFragment : Fragment() {
 //        记录选中的城市
         if (viewModel.isPlaceSaved()) {
             val place = viewModel.getSavedPlace()
-            val intent = Intent(context, WeatherForecastApplication::class.java).apply {
+            val intent = Intent(context, WeatherActivity::class.java).apply {
                 putExtra("location_lng", place.location.lng)
                 putExtra("location_lat", place.location.lat)
                 putExtra("place_name", place.name)
@@ -48,8 +49,8 @@ class PlaceFragment : Fragment() {
             startActivity(intent)
             activity?.finish()
             return
-        }
-//        记录选中的城市
+       }
+
         val layoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)

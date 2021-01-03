@@ -14,7 +14,7 @@ import kotlin.coroutines.CoroutineContext
 
 // 仓库层:判断调用方请求地数据应该是从本地数据源获取还是从网络数据源获取，并将数据返回给调用方
 object Repository {
-
+    //    记录选中的城市
     fun savePlace(place: Place) = PlaceDao.savePlace(place)
     fun getSavedPlace() = PlaceDao.getSavedPlace()
     fun isPlaceSaved() = PlaceDao.isPlaceSaved()
