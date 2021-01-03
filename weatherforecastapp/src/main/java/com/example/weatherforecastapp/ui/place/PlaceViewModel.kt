@@ -8,6 +8,11 @@ import com.example.weatherforecastapp.logic.model.Place
 
 // ViewModel层
 class PlaceViewModel : ViewModel() {
+//    记录选中的城市
+    fun savePlace(place: Place) = Repository.savePlace(place)
+    fun getSavedPlace() = Repository.getSavedPlace()
+    fun isPlaceSaved() = Repository.isPlaceSaved()
+//    记录选中的城市
     private val searchLiveDate = MutableLiveData<String>()
 
     val placeList = ArrayList<Place>() // 用于对界面上显示的城市数据进行缓存

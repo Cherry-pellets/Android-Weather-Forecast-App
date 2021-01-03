@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_place.*
 import android.text.Editable
 import android.text.TextWatcher
 import com.example.weatherforecastapp.R
+import com.example.weatherforecastapp.WeatherForecastApplication
 
 class PlaceFragment : Fragment() {
     val viewModel by lazy {
@@ -36,6 +37,19 @@ class PlaceFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+//        记录选中的城市
+        if (viewModel.isPlaceSaved()) {
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context, WeatherForecastApplication::class.java).apply {
+                putExtra("location_lng", place.location.lng)
+                putExtra("location_lat", place.location.lat)
+                putExtra("place_name", place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
+//        记录选中的城市
         val layoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)

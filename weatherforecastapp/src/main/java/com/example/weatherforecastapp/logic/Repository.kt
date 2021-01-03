@@ -1,6 +1,7 @@
 package com.example.weatherforecastapp.logic
 
 import androidx.lifecycle.liveData
+import com.example.weatherforecastapp.logic.dao.PlaceDao
 import com.example.weatherforecastapp.logic.model.Place
 import com.example.weatherforecastapp.logic.model.Weather
 import com.example.weatherforecastapp.logic.network.WeatherNetwork
@@ -13,6 +14,10 @@ import kotlin.coroutines.CoroutineContext
 
 // 仓库层:判断调用方请求地数据应该是从本地数据源获取还是从网络数据源获取，并将数据返回给调用方
 object Repository {
+
+    fun savePlace(place: Place) = PlaceDao.savePlace(place)
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
 
     fun searchPlaces(query: String) = fire(Dispatchers.IO) {
         val placeResponse = WeatherNetwork.searchPlaces(query)
