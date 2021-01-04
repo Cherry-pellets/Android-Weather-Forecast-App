@@ -54,10 +54,10 @@ class WeatherActivity : AppCompatActivity() {
                 Toast.makeText(this, "无法成功获取天气信息", Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull()?.printStackTrace()
             }
-//            swipeRefresh.isRefreshing = false
+            swipeRefresh.isRefreshing = false
         })
-        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
-/*        swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
+//        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+        swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
         refreshWeather()
         swipeRefresh.setOnRefreshListener {
             refreshWeather()
@@ -76,12 +76,12 @@ class WeatherActivity : AppCompatActivity() {
                 val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
             }
-        })*/
+        })
     }
 
     fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
-//        swipeRefresh.isRefreshing = true
+        swipeRefresh.isRefreshing = true
     }
 
     private fun showWeatherInfo(weather: Weather) {
