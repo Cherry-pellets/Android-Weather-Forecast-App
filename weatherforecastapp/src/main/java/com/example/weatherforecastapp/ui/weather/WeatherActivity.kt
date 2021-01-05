@@ -1,6 +1,7 @@
 package com.example.weatherforecastapp.ui.weather
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.weatherforecastapp.R
 import com.example.weatherforecastapp.logic.model.Weather
 import com.example.weatherforecastapp.logic.model.getSky
+import com.example.weatherforecastapp.ui.user.UserActivity
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.forecast.*
 import kotlinx.android.synthetic.main.life_index.*
@@ -77,6 +79,14 @@ class WeatherActivity : AppCompatActivity() {
                 manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
             }
         })
+//        点击配置按钮
+        configBtn.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
+            intent.putExtra("location_lng", viewModel.locationLng)
+            intent.putExtra("location_lat", viewModel.locationLat)
+            intent.putExtra("place_name", viewModel.placeName)
+            startActivity(intent)
+        }
     }
 
     fun refreshWeather() {

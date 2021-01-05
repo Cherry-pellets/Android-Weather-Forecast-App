@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_place"
     tools:context=".ui.user.UserActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Config"
-        android:textSize="36sp"/>
+    <!--这里最顶层用RelativeLayout会不显示-->
+    <fragment
+        android:id="@+id/leftFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:name="com.example.weatherforecastapp.ui.user.ConfigLeftFragment"
+        android:layout_weight="1">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/backHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_home"
+            app:elevation="8dp"/>
+    </fragment>
+    <FrameLayout
+        android:id="@+id/rightFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
 
-</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user.ConfigLeftFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/modifyUserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户信息" />
+        <Button
+            android:id="@+id/modifyConfiguration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App配置" />
+        <Button
+            android:id="@+id/aboutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关于App" />
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出登录" />
+    </LinearLayout>
+
+</FrameLayout>
